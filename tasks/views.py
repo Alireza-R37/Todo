@@ -69,7 +69,7 @@ def signup_view(request):
             user.save()
             login(request, user)
             messages.success(request, "خوش آمدی. ثبت‌نام با موفقیت انجام شد.")
-            return redirect("home")
+            return redirect("tasks:task_list")
     else:
         form = SignUpForm()
     return render(request, "accounts/signup.html", {"form": form})

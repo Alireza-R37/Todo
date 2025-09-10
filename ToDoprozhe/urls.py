@@ -21,7 +21,6 @@ from accounts.views import signup_view
 from django.views.generic import TemplateView
 from tasks.views import welcome  # ویوی جدید
 
-
 urlpatterns = [
     path('', welcome, name='welcome'),                # صفحه خوش‌آمدگویی در روت
     #path('' ,home, name='home'),   
