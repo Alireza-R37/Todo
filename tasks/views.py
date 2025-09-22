@@ -14,7 +14,6 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def task_list(request):
-    #tasks = Task.objects.all()  # گرفتن همه تسک‌ها
     tasks = Task.objects.filter(user=request.user).order_by('-id')
     context = {'tasks': tasks}
     return render(request, 'tasks/task_list.html', context  )
@@ -30,10 +29,10 @@ def add_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
         if form.is_valid():
-            task = form.save(commit=False)  # فرم رو ذخیره موقت می‌کنیم
-            task.user = request.user       # کاربر لاگین شده رو به فیلد user اختصاص میدیم
+            task = form.save(commit=False) 
+            task.user = request.user      
             task.save() 
-            return redirect('tasks:task_list')  # بعد از ذخیره به لیست تسک‌ها برمیگردیم
+            return redirect('tasks:task_list') 
     else:
         form = TaskForm()
     return render(request, 'tasks/add_task.html', {'ffform': form})
@@ -65,7 +64,7 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = True  # اگر تایید ایمیل می‌خواهی، این را False بگذار
+            user.is_active = True  
             user.save()
             login(request, user)
             messages.success(request, "خوش آمدی. ثبت‌نام با موفقیت انجام شد.")
@@ -99,28 +98,4 @@ def welcome(request):
 
 
 
-
-
-'''
-
-def home(request):
-    return HttpResponse("""
-        <h1>صفحه اصلی</h1>
-        <p><a href = '/tasks'> به وبسایت ما خوش آمدید!  </a> </p>
-        <p> <a href = '/admin'> Go to the Admin page </a> <p>
-
-    """)
-
-'''
-
-
-
-
-'''
-
-def home(request):
-    return HttpResponse('''
-#        <h1> خوش گلدی </h1>
- #       <h2 href= "/tasks"> برو به لیست تسک </h2>
-  #      ''')
 

@@ -19,7 +19,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ("username", "email")  # می‌توانی فیلدهای بیشتر هم بیفزایی
+        fields = ("username", "email") 
 
     def clean_email(self):
         email = self.cleaned_data["email"].lower()

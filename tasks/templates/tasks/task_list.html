@@ -20,14 +20,12 @@
     <h1 class="h4 mb-3">تسک‌ها</h1>
 
     <ul class="list-group card-clean p-3">
-      <!-- دکمه اضافه کردن (همان المان قبلی، فقط استایل) -->
       <li class="list-group-item bg-transparent border-0 p-0 mb-2">
         <a href="{% url 'tasks:add_task' %}">
           <button class="btn btn-primary">اضافه کردن</button>
         </a>
       </li>
 
-      <!-- حلقه‌ی نمایش تسک‌ها (همان متن و لینک‌ها حفظ شده) -->
       {% for task in tasks %}
         <li class="list-group-item list-group-item-action">
           <div class="flex-grow-1">
@@ -45,7 +43,6 @@
         <li class="list-group-item">تسکی وجود ندارد.</li>
       {% endfor %}
 
-      <!-- لینک خروج (همان المان قبلی) -->
       <li class="list-group-item bg-transparent border-0 p-0 my-2">
         <a class="btn btn-outline-secondary"
            href="{% url 'tasks:logout' %}?next={{ request.path }}">
@@ -53,12 +50,10 @@
         </a>
       </li>
 
-      <!-- وضعیت کاربر (همان متن‌های قبلی) -->
       <li class="list-group-item bg-transparent border-0 p-0">
         {% if request.user.is_authenticated %}
           وارد شده‌ای با: {{ request.user.get_username }}
-          <!-- یا {{ request.user.username }} -->
-          <!-- اگر ایمیل هم می‌خواهی: {{ request.user.email }} -->
+        
         {% else %}
           وارد نشده‌ای
         {% endif %}

@@ -8,7 +8,7 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = True  # اگر تایید ایمیل می‌خواهی، این را False بگذار
+            user.is_active = True 
             user.save()
             login(request, user)
             messages.success(request, "خوش آمدی. ثبت‌نام با موفقیت انجام شد.")

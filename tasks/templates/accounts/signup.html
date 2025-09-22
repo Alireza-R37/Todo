@@ -51,7 +51,6 @@
 </div>
 
 <style>
-  /* ظاهر بهتر برای خروجی پیش‌فرض جنگو */
   .signup-form p { margin-bottom: 1rem; }
   .signup-form ul.errorlist{
     margin:.35rem 0 0; padding:0; list-style:none; color:#dc3545; font-size:.9rem;
@@ -59,12 +58,10 @@
 </style>
 
 <script>
-  // بدون تغییر منطق، به ورودی‌ها کلاس‌های Bootstrap اضافه می‌کنیم
   (function () {
     const f = document.querySelector('.signup-form');
     if (!f) return;
 
-    // به لیبل‌ها و ورودی‌ها کلاس بده
     f.querySelectorAll('label').forEach(l => l.classList.add('form-label'));
 
     f.querySelectorAll('input, select, textarea').forEach(el => {

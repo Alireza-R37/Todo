@@ -12,7 +12,6 @@ class Task(models.Model):
     done = models.BooleanField(default=False)
     # ...
 
-# در view ساخت تسک:
 task = form.save(commit=False)
 task.owner = request.user
 task.save()

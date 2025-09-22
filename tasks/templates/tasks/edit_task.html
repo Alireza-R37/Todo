@@ -21,33 +21,26 @@
   </div>
   
   <script>
-    // تزریق کلاس‌های Bootstrap به خروجی form.as_p بدون تغییر منطق
     (function () {
       const form = document.querySelector('.edit-form');
       if (!form) return;
   
-      // هر <p> از form.as_p یک فاصله‌ی استاندارد بگیرد
       form.querySelectorAll('p').forEach(p => p.classList.add('mb-3'));
   
-      // به فیلدها کلاس مناسب بده
       form.querySelectorAll('input, select, textarea').forEach(el => {
         if (el.type === 'hidden') return;
   
         if (el.type === 'checkbox' || el.type === 'radio') {
-          // چک‌باکس/رادیو
           el.classList.add('form-check-input');
           const p = el.closest('p');
           if (p) p.classList.add('form-check', 'mb-3');
-          // لیبل کناری‌اش بوت‌استرپی شود
           const label = (p && p.querySelector('label')) ? p.querySelector('label') : null;
           if (label) label.classList.add('form-check-label', 'ms-2');
         } else {
-          // ورودی‌های معمولی
           el.classList.add('form-control');
         }
       });
   
-      // لیبل‌های معمولی
       form.querySelectorAll('label').forEach(l => l.classList.add('form-label'));
     })();
   </script>

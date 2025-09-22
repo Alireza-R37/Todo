@@ -22,4 +22,3 @@ class Task(models.Model):
 
 
 
-#  models.ForeignKey(User, on_delete=models.CASCADE)  # مالک تسک
